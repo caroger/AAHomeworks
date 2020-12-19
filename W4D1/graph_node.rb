@@ -1,0 +1,3 @@
+class GraphNode
+
+end
