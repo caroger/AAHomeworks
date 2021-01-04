@@ -1,26 +1,16 @@
 class CatsController < ApplicationController
-  def create
-    p 'THESE ARE THE PARAMS'
-    p params
-    p 'THESE ARE THE CAT PARAMS'
-    p cat_params
-
-    Cat.create!(cat_params)
-
-    redirect_to cats_url
-  end
 
   def index
     @cats = Cat.all
-
-    render :index
+    render json: @cats
   end
 
-  def new
-    render :new
+  def show
+    @cat = Cat.find_by(id: params[:id])
+    render json: @cat
   end
 
-  def cat_params
-    params.require(:cat).permit(:name, :age, :sex, :biography, :coat_color, :birth_date)
+  def create
+
   end
 end
