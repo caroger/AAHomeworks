@@ -1,0 +1,9 @@
+<h1><%= @cat.name %></h1>
+
+<ul>
+  <% @cat.toys.each do |toy| %>
+    <li><%= toy.name %></li>
+  <% end %>
+</ul>
+
+<a href=<%= cats_url %>>Index</a>
