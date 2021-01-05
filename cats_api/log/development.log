@@ -368,3 +368,838 @@ Migrating to Toys (20210105050421)
   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 1]]
+Started GET "/" for ::1 at 2021-01-04 21:26:52 -0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roger/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"cat"=>{"age"=>"3"}}
+  Rendering /home/roger/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/roger/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 15ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/toys" for ::1 at 2021-01-04 21:26:57 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting tCONSTANT
+...     ttype: params[:toy][::type])
+...                           ^~~~:
+  app/controllers/toys_controller.rb:13:in `'
+
+Started GET "/toys" for ::1 at 2021-01-04 21:28:17 -0800
+
+SyntaxError - syntax error, unexpected tIDENTIFIER, expecting tCONSTANT
+...     ttype: params[:toy][::type])
+...                           ^~~~:
+  app/controllers/toys_controller.rb:13:in `'
+
+Started GET "/toys" for ::1 at 2021-01-04 21:28:30 -0800
+Processing by ToysController#index as */*
+  Parameters: {"cat"=>{"age"=>"3"}}
+  [1m[36mToy Load (0.5ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  ↳ app/controllers/toys_controller.rb:3
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 5.0ms)
+
+
+Started GET "/toys" for ::1 at 2021-01-04 21:28:33 -0800
+Processing by ToysController#index as */*
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  ↳ app/controllers/toys_controller.rb:3
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/toys" for ::1 at 2021-01-04 21:29:45 -0800
+Processing by ToysController#create as */*
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/toys_controller.rb:11:in `create'
+
+Started POST "/toys" for ::1 at 2021-01-04 21:32:08 -0800
+Processing by ToysController#create as */*
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/toys_controller.rb:11:in `create'
+
+Started POST "/toys" for ::1 at 2021-01-04 21:33:09 -0800
+Processing by ToysController#create as */*
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/toys_controller.rb:12:in `create'
+
+Started POST "/toys" for ::1 at 2021-01-04 21:33:23 -0800
+Processing by ToysController#create as */*
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/toys_controller.rb:12:in `create'
+
+Started POST "/toys" for ::1 at 2021-01-04 21:33:48 -0800
+Processing by ToysController#create as */*
+Completed 500 Internal Server Error in 37828ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  app/controllers/toys_controller.rb:13:in `create'
+
+Started POST "/toys" for ::1 at 2021-01-04 21:35:13 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"cat_id"=>"1", "name"=>"stringy", "ttype"=>"string"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("cat_id", "name", "ttype", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 1], ["name", "stringy"], ["ttype", "string"], ["created_at", "2021-01-05 05:35:23.211662"], ["updated_at", "2021-01-05 05:35:23.211662"]]
+  ↳ app/controllers/toys_controller.rb:17
+  [1m[35m (77.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:17
+Completed 200 OK in 9499ms (Views: 0.7ms | ActiveRecord: 87.5ms)
+
+
+Started GET "/toys" for ::1 at 2021-01-04 22:48:27 -0800
+Processing by ToysController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>"1", "name"=>"stringy", "ttype"=>"string"}}
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  ↳ app/controllers/toys_controller.rb:3
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/toys/2" for ::1 at 2021-01-04 22:50:05 -0800
+Processing by ToysController#show as */*
+  Parameters: {"toy"=>{"cat_id"=>"1", "name"=>"stringy", "ttype"=>"string"}, "id"=>"2"}
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:7
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2021-01-04 22:50:46 -0800
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>"1", "name"=>"Senator String", "ttype"=>"string"}, "id"=>"2"}
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mToy Update (0.5ms)[0m  [1m[33mUPDATE "toys" SET "name" = $1, "updated_at" = $2 WHERE "toys"."id" = $3[0m  [["name", "Senator String"], ["updated_at", "2021-01-05 06:50:46.109036"], ["id", 2]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.9ms)
+
+
+Started PATCH "/toys/" for ::1 at 2021-01-04 22:50:48 -0800
+  
+ActionController::RoutingError (No route matches [PATCH] "/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/toys/" for ::1 at 2021-01-04 22:50:53 -0800
+Processing by ToysController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>"1", "name"=>"Senator String", "ttype"=>"string"}}
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  ↳ app/controllers/toys_controller.rb:3
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/toys/" for ::1 at 2021-01-04 22:52:08 -0800
+  
+ActionController::RoutingError (No route matches [PATCH] "/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/toys/2" for ::1 at 2021-01-04 22:52:15 -0800
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>"1", "name"=>"Senator String"}, "id"=>"2"}
+  [1m[36mToy Load (0.5ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 422 Unprocessable Entity in 9ms (Views: 0.2ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2021-01-04 22:52:32 -0800
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>"1", "name"=>"Senator String", "ttype"=>"string"}, "id"=>"2"}
+  [1m[36mToy Load (0.6ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2021-01-04 22:53:32 -0800
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>1, "name"=>"Congressman String"}, "id"=>"2"}
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 422 Unprocessable Entity in 6ms (Views: 0.2ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/toys/2" for ::1 at 2021-01-04 22:54:43 -0800
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>1, "name"=>"Congressman String", "ttype"=>nil}, "id"=>"2"}
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 422 Unprocessable Entity in 8ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" ORDER BY "toys"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mToy Load (0.4ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" ORDER BY "toys"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mToy Update (0.3ms)[0m  [1m[33mUPDATE "toys" SET "name" = $1, "updated_at" = $2 WHERE "toys"."id" = $3[0m  [["name", "Congressman String"], ["updated_at", "2021-01-05 06:55:44.299563"], ["id", 2]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+Started PATCH "/toys/2" for ::1 at 2021-01-04 22:57:38 -0800
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>1, "name"=>"President String"}, "id"=>"2"}
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 6.9ms)
+
+
+
+ActiveModel::ForbiddenAttributesError - ActiveModel::ForbiddenAttributesError:
+  app/controllers/toys_controller.rb:32:in `update'
+
+Started PATCH "/toys/2" for ::1 at 2021-01-04 23:02:35 -0800
+Processing by ToysController#update as */*
+  Parameters: {"toy"=>{"cat_id"=>1, "name"=>"President String"}, "id"=>"2"}
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:27
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:28
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:28
+  [1m[36mToy Update (0.2ms)[0m  [1m[33mUPDATE "toys" SET "name" = $1, "updated_at" = $2 WHERE "toys"."id" = $3[0m  [["name", "President String"], ["updated_at", "2021-01-05 07:02:35.841729"], ["id", 2]]
+  ↳ app/controllers/toys_controller.rb:28
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:28
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 6.4ms)
+
+
+Started POST "/toys/" for ::1 at 2021-01-04 23:03:11 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "type"=>"ball"}}
+Unpermitted parameter: :type
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:13
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:13
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:13
+Completed 422 Unprocessable Entity in 26132ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/toys/" for ::1 at 2021-01-04 23:03:40 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "type"=>"ball"}}
+Unpermitted parameter: :type
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:12
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:12
+Completed 422 Unprocessable Entity in 26ms (Views: 0.2ms | ActiveRecord: 8.5ms)
+
+
+Started POST "/toys/" for ::1 at 2021-01-04 23:03:49 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:12
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:12
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:12
+Completed 422 Unprocessable Entity in 7ms (Views: 0.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/toys/" for ::1 at 2021-01-04 23:04:28 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:12
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:12
+  [1m[36mToy Create (0.6ms)[0m  [1m[32mINSERT INTO "toys" ("cat_id", "name", "ttype", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 3], ["name", "Basketball"], ["ttype", "ball"], ["created_at", "2021-01-05 07:04:28.835414"], ["updated_at", "2021-01-05 07:04:28.835414"]]
+  ↳ app/controllers/toys_controller.rb:12
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:12
+Completed 200 OK in 29ms (Views: 0.4ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/toys" for ::1 at 2021-01-04 23:04:38 -0800
+Processing by ToysController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}}
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT "toys".* FROM "toys"[0m
+  ↳ app/controllers/toys_controller.rb:3
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/cats" for ::1 at 2021-01-04 23:04:43 -0800
+Processing by CatsController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}, "cat"=>{}}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:5
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/1" for ::1 at 2021-01-04 23:05:52 -0800
+Processing by CatsController#show as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}, "id"=>"1", "cat"=>{}}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:10
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:06:15 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/cats/1/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cats/" for ::1 at 2021-01-04 23:07:08 -0800
+Processing by CatsController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}, "cat"=>{}}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:5
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/" for ::1 at 2021-01-04 23:07:16 -0800
+Processing by CatsController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}, "cat"=>{}}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT "cats".* FROM "cats"[0m
+  ↳ app/controllers/cats_controller.rb:5
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:19:13 -0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/roger/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by ToysController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}, "cat_id"=>"1"}
+Completed 500 Internal Server Error in 118ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `cat_id' for #<ToysController:0x0000558544ec0710>
+Did you mean?  cat_url:
+  app/controllers/toys_controller.rb:3:in `index'
+
+Started GET "/cats/1" for ::1 at 2021-01-04 23:19:58 -0800
+Processing by CatsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/cats_controller.rb:10
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:20:01 -0800
+Processing by ToysController#index as HTML
+  Parameters: {"cat_id"=>"1"}
+Completed 500 Internal Server Error in 149ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `cat_id' for #<ToysController:0x0000558544ec1098>
+Did you mean?  cat_url:
+  app/controllers/toys_controller.rb:3:in `index'
+
+Started POST "/__better_errors/bb04bb579915e970/variables" for ::1 at 2021-01-04 23:20:01 -0800
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:20:04 -0800
+Processing by ToysController#index as HTML
+  Parameters: {"cat_id"=>"1"}
+Completed 500 Internal Server Error in 136ms (ActiveRecord: 0.0ms)
+
+
+
+NameError - undefined local variable or method `cat_id' for #<ToysController:0x00005585458fa118>
+Did you mean?  cat_url:
+  app/controllers/toys_controller.rb:3:in `index'
+
+Started POST "/__better_errors/78c22ccee7b6fe73/variables" for ::1 at 2021-01-04 23:20:04 -0800
+Started POST "/__better_errors/78c22ccee7b6fe73/eval" for ::1 at 2021-01-04 23:20:07 -0800
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:20:30 -0800
+Processing by ToysController#index as HTML
+  Parameters: {"cat_id"=>"1"}
+  [1m[36mCat Load (0.1ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:3
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 1.6ms)
+
+
+
+NoMethodError - undefined method `toys' for nil:NilClass:
+  app/controllers/toys_controller.rb:4:in `index'
+
+Started POST "/__better_errors/694a77022ea57e7f/variables" for ::1 at 2021-01-04 23:20:30 -0800
+Started POST "/__better_errors/694a77022ea57e7f/eval" for ::1 at 2021-01-04 23:20:43 -0800
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:21:00 -0800
+Processing by ToysController#index as HTML
+  Parameters: {"cat_id"=>"1"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:3
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 1]]
+  ↳ app/controllers/toys_controller.rb:4
+Completed 200 OK in 22ms (Views: 5.7ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/toys" for ::1 at 2021-01-04 23:32:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:33:03 -0800
+Processing by ToysController#index as */*
+  Parameters: {"cat_id"=>"1"}
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:3
+  [1m[36mToy Load (0.2ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 1]]
+  ↳ app/controllers/toys_controller.rb:4
+Completed 200 OK in 28ms (Views: 7.6ms | ActiveRecord: 9.9ms)
+
+
+Started POST "/cats/1/toys" for ::1 at 2021-01-04 23:34:00 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}, "cat_id"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:33
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:33
+  [1m[36mToy Create (0.4ms)[0m  [1m[32mINSERT INTO "toys" ("cat_id", "name", "ttype", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 1], ["name", "Basketball"], ["ttype", "ball"], ["created_at", "2021-01-05 07:34:00.273506"], ["updated_at", "2021-01-05 07:34:00.273506"]]
+  ↳ app/controllers/toys_controller.rb:33
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:33
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/cats/1/toys" for ::1 at 2021-01-04 23:34:06 -0800
+Processing by ToysController#index as */*
+  Parameters: {"toy"=>{"cat_id"=>3, "name"=>"Basketball", "ttype"=>"ball"}, "cat_id"=>"1"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:3
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 1]]
+  ↳ app/controllers/toys_controller.rb:4
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/cats/3/toys" for ::1 at 2021-01-04 23:36:19 -0800
+Processing by ToysController#index as */*
+  Parameters: {"toy"=>{"name"=>"Basketball", "ttype"=>"ball"}, "cat_id"=>"3"}
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:3
+  [1m[36mToy Load (0.1ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 3]]
+  ↳ app/controllers/toys_controller.rb:4
+Completed 200 OK in 3ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cats/3/toys" for ::1 at 2021-01-04 23:36:34 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"name"=>"Football", "ttype"=>"ball"}, "cat_id"=>"3"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:33
+  [1m[36mCat Load (0.3ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:33
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("cat_id", "name", "ttype", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 3], ["name", "Football"], ["ttype", "ball"], ["created_at", "2021-01-05 07:36:34.787742"], ["updated_at", "2021-01-05 07:36:34.787742"]]
+  ↳ app/controllers/toys_controller.rb:33
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:33
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cats/3/toys" for ::1 at 2021-01-04 23:36:39 -0800
+Processing by ToysController#index as */*
+  Parameters: {"toy"=>{"name"=>"Football", "ttype"=>"ball"}, "cat_id"=>"3"}
+  [1m[36mCat Load (0.4ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:3
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT "toys".* FROM "toys" WHERE "toys"."cat_id" = $1[0m  [["cat_id", 3]]
+  ↳ app/controllers/toys_controller.rb:4
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/toys" for ::1 at 2021-01-04 23:37:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/toy" for ::1 at 2021-01-04 23:37:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toy"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/toy/1" for ::1 at 2021-01-04 23:37:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toy/1"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/toy/1" for ::1 at 2021-01-04 23:37:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toy/1"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/toys/1" for ::1 at 2021-01-04 23:38:03 -0800
+Processing by ToysController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mToy Load (0.3ms)[0m  [1m[34mSELECT  "toys".* FROM "toys" WHERE "toys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:8
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/toys/" for ::1 at 2021-01-04 23:38:07 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/toys/" for ::1 at 2021-01-04 23:39:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/toys/" for ::1 at 2021-01-04 23:40:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/toys"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/toys/" for ::1 at 2021-01-04 23:41:44 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"name"=>"Football", "ttype"=>"ball", "cat_id"=>"3"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mCat Load (0.2ms)[0m  [1m[34mSELECT  "cats".* FROM "cats" WHERE "cats"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[36mToy Create (0.3ms)[0m  [1m[32mINSERT INTO "toys" ("cat_id", "name", "ttype", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["cat_id", 3], ["name", "Football"], ["ttype", "ball"], ["created_at", "2021-01-05 07:41:44.781449"], ["updated_at", "2021-01-05 07:41:44.781449"]]
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/toys/" for ::1 at 2021-01-04 23:42:23 -0800
+Processing by ToysController#create as */*
+  Parameters: {"toy"=>{"name"=>"Football", "ttype"=>"ball"}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/toys_controller.rb:32
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/toys_controller.rb:32
+Completed 422 Unprocessable Entity in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
