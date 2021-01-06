@@ -8,6 +8,12 @@ class ToysController < ApplicationController
     render json: Toy.find_by(id: params[:id])
   end
 
+  def new
+    @cat = Cat.find_by(id: params[:cat_id])
+    @toy = Toy.new
+    render :new
+  end
+
   def destroy
     toy = Toy.find_by(id: params[:id])
     toy.destroy
@@ -27,12 +33,13 @@ class ToysController < ApplicationController
   def create
     # POST /cats/:cat_id/toys
     # POST /toys
-    toy = Toy.new(toy_params)
+    @toy = Toy.new(toy_params)
+    @cat = @toy.cat
 
-    if toy.save
-      render json: toy
+    if @toy.save
+      redirect_to cat_url(@cat)
     else
-      render json: toy.errors.full_messages, status: :unprocessable_entity
+      render :new
     end
   end
 

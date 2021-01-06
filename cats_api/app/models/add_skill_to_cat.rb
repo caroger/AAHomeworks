@@ -1,0 +1,2 @@
+class AddSkillToCat < ApplicationRecord
+end

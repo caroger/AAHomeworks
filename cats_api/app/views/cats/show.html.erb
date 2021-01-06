@@ -1,9 +1,11 @@
 <h1><%= @cat.name %></h1>
+<h1><%= @cat.skill %></h1>
 
 <ul>
   <% @cat.toys.each do |toy| %>
     <li><%= toy.name %></li>
   <% end %>
 </ul>
+<a href="<%= new_cat_toy_url(@cat) %>">Create New Toy</a>
 
 <a href=<%= cats_url %>>Index</a>
