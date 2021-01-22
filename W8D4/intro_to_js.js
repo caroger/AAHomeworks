@@ -148,5 +148,20 @@ Elephant.paradeHelper = function(elephant) {
   console.log(`${elephant.name} is trotting by!`)
 }
 
-herd.forEach(ele => Elephant.paradeHelper(ele))
+// herd.forEach(ele => Elephant.paradeHelper(ele))
 
+//Closures
+function dinerBreakfast(){
+  let order = "cheesy scrambled eggs"
+  console.log(`I'd like ${order} please`);
+
+  return function(food){
+    order += ` and ${food}`
+    console.log(`I'd like ${order} please`)
+  }
+}
+
+
+let bfastOrder = dinerBreakfast();
+bfastOrder("chocolate chip pancakes");
+bfastOrder("grits");
